@@ -12,6 +12,9 @@ public class XeMay {
     private int id_lxm;
     private int trangThai;
 
+    public XeMay() {
+    }
+
     public XeMay(int id, String ma, String ten, String moTa, float giaNhap, float giaBan, int soLuong, String website, int id_lxm, int trangThai) {
         this.id = id;
         this.ma = ma;

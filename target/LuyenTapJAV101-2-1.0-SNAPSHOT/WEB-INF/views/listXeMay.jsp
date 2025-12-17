@@ -15,20 +15,20 @@
     <h1>Danh sach xe may</h1>
 
     <table border="1">
-        <tr>ID</tr>
-        <tr>Ma</tr>
-        <tr>Ten</tr>
-        <tr>Mo ta</tr>
-        <tr>Gia nhap</tr>
-        <tr>Gia ban</tr>
-        <tr>So luong</tr>
-        <tr>Website</tr>
-        <tr>id_lxm</tr>
-        <tr>Trang thai</tr>
-        <tr>Action</tr>
+        <th>ID</th>
+        <th>Ma</th>
+        <th>Ten</th>
+        <th>Mo ta</th>
+        <th>Gia nhap</th>
+        <th>Gia ban</th>
+        <th>So luong</th>
+        <th>Website</th>
+        <th>id_lxm</th>
+        <th>Trang thai</th>
+        <th>Action</th>
     </table>
 
-    <c:forEach items="${list}" var="xeMay">
+    <c:forEach items="${list}" var="XeMay">
         <tr>
             <td>${xeMay.id}</td>
             <td>${xeMay.ma}</td>
