@@ -20,7 +20,7 @@ public class ViewServlet extends HttpServlet {
         try {
             List<XeMay> list = repository.getAll();
             req.setAttribute("XeMay", list);
-            req.getRequestDispatcher("WEB-INF/views/listXeMay.jsp").forward(req, resp);
+            req.getRequestDispatcher("/WEB-INF/views/listXeMay.jsp").forward(req, resp);
         } catch (Exception e) {
             e.printStackTrace();
         }
