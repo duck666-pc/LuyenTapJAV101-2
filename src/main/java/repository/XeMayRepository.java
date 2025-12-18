@@ -12,6 +12,29 @@ import java.util.List;
 
 public class XeMayRepository {
 
+    public int update(XeMay model) throws Exception {
+        String sql = "UPDATE xe_may SET ma = ?, ten = ?, mota = ?, gia_nhap = ?, gia_ban = ?, so_luong = ?, website = ?, id_lxm = ?, trang_thai = ? WHERE id = ?";
+
+        try (Connection conn = DbConnector.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+            pstmt.setString(1, model.getMa());
+            pstmt.setString(2, model.getTen());
+            pstmt.setString(3, model.getMoTa());
+            pstmt.setFloat(4, model.getGiaNhap());
+            pstmt.setFloat(5, model.getGiaBan());
+            pstmt.setInt(6, model.getSoLuong());
+            pstmt.setString(7, model.getWebsite());
+            pstmt.setInt(8, model.getId_lxm());
+            pstmt.setInt(9, model.getTrangThai());
+            pstmt.setInt(10, model.getId());
+
+            return pstmt.executeUpdate();
+        }
+    }
+
+
+
     public static int deleteById(Integer id) throws Exception {
         String sql = "DELETE FROM xe_may WHERE id = ?";
 

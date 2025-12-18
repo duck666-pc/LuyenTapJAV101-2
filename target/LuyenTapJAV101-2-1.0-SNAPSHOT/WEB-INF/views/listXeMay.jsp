@@ -38,7 +38,7 @@
             <td>${xeMay.trangThai}</td>
             <td>
                 <a href="">Edit</a> |
-                <a href="${pageContext.req.contextPath}/motor-management/delete?id=${xeMay.id}">Delete</a>
+                <a href="${pageContext.request.contextPath}/motor-management/delete?id=${xeMay.id}">Delete</a>
             </td>
         </tr>
     </c:forEach>
