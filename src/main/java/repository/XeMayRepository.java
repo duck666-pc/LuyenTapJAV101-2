@@ -12,6 +12,18 @@ import java.util.List;
 
 public class XeMayRepository {
 
+    public static int deleteById(Integer id) throws Exception {
+        String sql = "DELETE FROM xe_may WHERE id = ?";
+
+        try (Connection conn = DbConnector.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+            pstmt.setInt(1, id);
+            return pstmt.executeUpdate();
+        }
+    }
+
+
     public XeMay getById(Integer id) throws Exception {
         String sql = "SELECT * FROM xe_may WHERE id = ?";
 

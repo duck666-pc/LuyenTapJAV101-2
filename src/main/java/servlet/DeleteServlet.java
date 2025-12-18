@@ -5,26 +5,24 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import model.XeMay;
 import repository.XeMayRepository;
 
 import java.io.IOException;
-import java.util.List;
 
-@WebServlet(value = {"/groups", "/motor-management/groups"})
-public class ViewServlet extends HttpServlet {
+@WebServlet("/motor-management/delete")
+public class DeleteServlet extends HttpServlet {
     private final XeMayRepository repository = new XeMayRepository();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String idStr = req.getParameter("id");
         try {
-            List<XeMay> list = repository.getAll();
-            req.setAttribute("list", list);
-            req.getRequestDispatcher("/WEB-INF/views/listXeMay.jsp").forward(req, resp);
+            Integer id = Integer.valueOf(idStr);
+            XeMayRepository.deleteById(id);
         } catch (Exception e) {
             e.printStackTrace();
         }
+        resp.sendRedirect(req.getContextPath() + "/groups");
     }
-
-
 }
+

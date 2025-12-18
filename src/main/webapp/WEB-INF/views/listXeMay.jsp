@@ -1,20 +1,15 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%--
-  Created by IntelliJ IDEA.
-  User: minhd
-  Date: 17/12/2025
-  Time: 9:19 CH
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <title>Danh sach xe may</title>
 </head>
 <body>
-    <h1>Danh sach xe may</h1>
+<h1>Danh sach xe may</h1>
 
-    <table border="1">
+<table border="1">
+    <thead>
+    <tr>
         <th>ID</th>
         <th>Ma</th>
         <th>Ten</th>
@@ -26,9 +21,10 @@
         <th>id_lxm</th>
         <th>Trang thai</th>
         <th>Action</th>
-    </table>
-
-    <c:forEach items="${list}" var="XeMay">
+    </tr>
+    </thead>
+    <tbody>
+    <c:forEach items="${list}" var="xeMay">
         <tr>
             <td>${xeMay.id}</td>
             <td>${xeMay.ma}</td>
@@ -40,7 +36,13 @@
             <td>${xeMay.website}</td>
             <td>${xeMay.id_lxm}</td>
             <td>${xeMay.trangThai}</td>
+            <td>
+                <a href="">Edit</a> |
+                <a href="${pageContext.req.contextPath}/motor-management/delete?id=${xeMay.id}">Delete</a>
+            </td>
         </tr>
     </c:forEach>
+    </tbody>
+</table>
 </body>
 </html>
